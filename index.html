@@ -1,14 +1,335 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nexogrx-pitch</title>
-  <meta name="description" content="nexogrx-pitch">
-  <link rel="canonical" href="https://nexogrx-pitch.pages.dev/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TablaVista · Hoy en tu restaurante</title>
+<meta name="description" content="TablaVista lleva el día entero de un restaurante, y se maneja hablando.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#292823">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Kalam:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/site.css?v=1">
+<script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
-  <h1>nexogrx-pitch</h1>
-  <p>Bootstrapped via <code>nexo-create</code>. Replace this file with the real site.</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="chalk" x="-2%" y="-10%" width="104%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="3" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.25" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+  </defs>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.4a11 11 0 0 0 7.3 7.3l1.4-2.2 4.2 1.6V19a1.8 1.8 0 0 1-1.9 1.8A16.5 16.5 0 0 1 3.2 5.4 1.8 1.8 0 0 1 5 3.5z"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-till" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11" rx="2"/><path d="M7 9V4.5h10V9M7 13.5h2M11 13.5h2M15 13.5h2M7 16.5h10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4.8a3.2 3.2 0 0 1 0 6.4M21 20a6 6 0 0 0-3.6-5.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+  <symbol id="i-bottle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4M10.5 2.5v4.2c0 1-2.5 2.3-2.5 4.8V20a1.5 1.5 0 0 0 1.5 1.5h5A1.5 1.5 0 0 0 16 20v-8.5c0-2.5-2.5-3.8-2.5-4.8V2.5"/><path d="M8 13.5h8"/></symbol>
+  <symbol id="i-pot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM2 10h2M20 10h2M9 6.5c0-1 1-1.5 1-2.5M14 6.5c0-1 1-1.5 1-2.5"/></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-.6 6.2a4.4 4.4 0 0 1-8.8 0z"/><path d="M12 13.6V20M8 21h8"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5z"/><path d="M3 8v8.5l9 5 9-5V8M12 13v8.5"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.5V5a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V5M16 20v-6M2.5 20.5h19"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 21h4"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2.5 9h19M12 9v11.5M12 9c-1.5-4-6-4.5-6-2s4 2 6 2c2 0 6 .5 6-2s-4.5-2-6 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></symbol>
+</svg>
+
+<main>
+<header class="board hero" id="top">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="TablaVista">
+        <svg class="tt" viewBox="0 0 162 92" aria-hidden="true"><rect width="162" height="20" rx="7" fill="#f1eee6"/><rect x="33" y="20" width="24" height="72" fill="#f04b32"/><rect x="104" y="20" width="22" height="72" fill="#f1eee6"/></svg>
+        <svg class="wm" viewBox="0 0 500 96" aria-hidden="true"><g transform="translate(-3,95) scale(.1,-.1)"><path d="M30 865 l0 -85 115 0 115 0 0 -370 0 -370 95 0 95 0 0 370 0 370 43 0 c24 0 78 3 120 6 l77 7 0 78 0 79 -330 0 -330 0 0 -85z M3177 923 c-8 -16 -61 -156 -117 -313 -98 -270 -120 -324 -120 -289 0 12 -132 398 -200 587 l-12 32 -92 0 -93 0 59 -167 c32 -93 104 -295 160 -450 l101 -283 82 0 81 0 122 303 c104 260 232 591 232 603 0 2 -43 4 -95 4 l-94 0 -14 -27z M1172 493 l3 -448 78 -3 77 -3 0 42 0 42 23 -21 c42 -40 116 -65 189 -64 78 0 127 14 184 53 141 96 166 329 50 465 -94 110 -275 137 -390 59 l-36 -24 0 174 0 175 -90 0 -90 0 2 -447z m400 17 c49 -14 104 -76 113 -128 13 -78 -27 -162 -91 -188 -45 -19 -128 -18 -170 2 -89 42 -114 182 -46 262 43 52 119 72 194 52z M1870 491 l0 -451 85 0 86 0 -1 242 c0 134 -3 335 -7 449 l-6 205 -78 3 -79 2 0 -450z M3395 886 c-32 -32 -40 -69 -25 -107 17 -40 46 -59 93 -59 67 0 113 68 87 131 -25 59 -111 78 -155 35z M4167 803 c-4 -3 -7 -39 -7 -79 l0 -73 -32 -3 -33 -3 -3 -57 -3 -58 35 0 35 0 3 -182 3 -183 21 -40 c15 -29 36 -48 74 -67 l52 -28 68 0 c98 0 100 2 100 71 l0 59 -54 0 c-38 0 -61 6 -77 19 l-24 19 0 164 0 163 83 3 82 3 0 59 0 60 -85 0 -85 0 0 80 0 80 -73 0 c-41 0 -77 -3 -80 -7z M720 659 c-19 -5 -52 -17 -72 -26 l-38 -16 0 -63 0 -63 48 21 c63 29 184 36 234 15 40 -17 78 -67 78 -104 0 -27 5 -27 -54 -7 -66 23 -206 16 -261 -13 -73 -38 -115 -105 -115 -183 0 -163 200 -242 376 -150 l55 29 6 -29 6 -30 74 0 74 0 -3 223 -3 222 -22 41 c-26 49 -80 98 -131 120 -45 19 -202 28 -252 13z m198 -359 c49 -22 55 -50 20 -95 -28 -35 -75 -55 -133 -55 -100 0 -145 60 -94 124 12 15 31 32 43 36 37 15 119 10 164 -10z M2281 659 c-29 -5 -73 -18 -97 -29 l-44 -19 0 -60 c0 -34 1 -61 3 -61 1 0 26 9 55 20 69 27 156 35 209 21 50 -14 93 -60 93 -101 l0 -28 -47 14 c-58 18 -176 17 -226 0 -114 -41 -175 -159 -136 -263 45 -120 249 -162 374 -77 20 13 38 24 40 24 3 0 5 -13 5 -30 l0 -30 75 0 75 0 0 218 0 217 -24 51 c-25 54 -58 83 -128 113 -53 24 -155 33 -227 20z m169 -358 l45 -17 -2 -33 c-2 -60 -61 -101 -143 -101 -55 0 -104 19 -114 45 -36 95 87 156 214 106z M4709 660 c-26 -4 -67 -17 -93 -28 l-46 -21 0 -60 c0 -34 2 -61 4 -61 2 0 19 6 37 14 19 8 63 19 98 26 115 21 193 -14 211 -94 l8 -37 -16 5 c-113 34 -220 33 -288 -2 -125 -64 -161 -212 -73 -306 46 -51 90 -66 185 -66 72 1 133 17 163 44 24 22 31 20 31 -8 0 -30 21 -36 101 -29 l61 6 -4 221 -3 221 -22 40 c-28 53 -68 89 -124 114 -53 24 -163 34 -230 21z m174 -368 c111 -64 -68 -197 -184 -137 -72 38 -56 129 27 155 41 13 120 4 157 -18z M3722 644 c-130 -48 -169 -193 -75 -281 26 -25 63 -42 150 -69 148 -47 180 -76 132 -120 l-21 -19 -82 0 c-64 1 -94 6 -144 27 -70 30 -68 31 -75 -50 l-4 -53 26 -13 c78 -40 267 -49 354 -16 112 42 157 142 107 240 -26 51 -87 86 -209 122 -134 39 -163 76 -90 116 32 18 138 10 212 -15 l57 -20 0 68 0 68 -37 12 c-63 19 -251 21 -301 3z M3387 643 c-4 -3 -7 -141 -7 -305 l0 -298 79 0 79 0 5 38 c7 52 8 401 1 495 l-6 77 -72 0 c-40 0 -76 -3 -79 -7z"/></g></svg>
+      </a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="today">
+          <span class="chalk red hoy write d1" data-i="hoy">Hoy</span>
+          <span class="date" id="date"></span>
+        </div>
+        <h1 class="chalk write d2" data-i="h1">Lo dices. Está hecho.</h1>
+        <p class="lede" data-i="lede"><strong>TablaVista</strong> lleva el día entero de un restaurante: reservas, sala, caja, cocina, carta, bodega, turnos y APPCC. Y tu equipo lo maneja hablando.</p>
+
+        <nav class="menu" aria-label="Menú del día">
+          <div class="menu-head">
+            <span class="chalk" data-i="menuTitle">Menú del día</span>
+            <span class="price" data-i="menuPrice">Precio: en la demo</span>
+          </div>
+          <ol>
+            <li><a href="#voz"><span class="course" data-i="c1">Para empezar</span><span class="dish" data-i="d1">El equipo habla, la app lo hace</span><span class="lead"></span><span class="go"><span data-i="see">verlo</span><svg><use href="#i-arrow"/></svg></span></a></li>
+            <li><a href="#telefono"><span class="course" data-i="c2">Primero</span><span class="dish" data-i="d2">Un teléfono que reserva solo</span><span class="lead"></span><span class="go"><span data-i="see">verlo</span><svg><use href="#i-arrow"/></svg></span></a></li>
+            <li><a href="#saber"><span class="course" data-i="c3">Segundo</span><span class="dish" data-i="d3">Cada plato, bien dicho</span><span class="lead"></span><span class="go"><span data-i="hear">oírlo</span><svg><use href="#i-arrow"/></svg></span></a></li>
+            <li><a href="#bodega"><span class="course" data-i="c4">Postre</span><span class="dish" data-i="d4">16.000 botellas en un toque</span><span class="lead"></span><span class="go"><span data-i="try">probarlo</span><svg><use href="#i-arrow"/></svg></span></a></li>
+          </ol>
+          <p class="incl" data-i="incl">Incluye pan, bebida… y la caja, la cocina, los turnos y el APPCC.</p>
+        </nav>
+
+        <div class="ctas">
+          <a class="btn btn-red" href="https://tablavista.com/#demo" data-i="ctaDemo">Pide una demo</a>
+          <button class="btn btn-chalk" type="button" data-film="historia-corta"><svg><use href="#i-play"/></svg><span data-i="ctaFilm">Mira la historia en 1 minuto</span></button>
+        </div>
+      </div>
+
+      <aside class="ticket" aria-live="polite" id="heroTicket">
+        <span class="pin" aria-hidden="true"></span>
+        <div class="tk-head"><span data-i="tkHead">Comanda · voz</span><span>21:47</span></div>
+        <p class="tk-said"><svg><use href="#i-mic"/></svg><span data-i="tkSaid">Dice Lucía, en barra</span></p>
+        <p class="tk-quote" id="heroQuote" data-i="tkQuote">«Se acabó el pulpo.»</p>
+        <ul class="tk-lines" id="heroLines">
+          <li class="on"><svg><use href="#i-check"/></svg><span data-i="tk1"><b>Pulpo a la gallega</b> marcado como agotado</span></li>
+          <li class="on"><svg><use href="#i-check"/></svg><span data-i="tk2">La caja ya no deja venderlo</span></li>
+          <li class="on"><svg><use href="#i-check"/></svg><span data-i="tk3">Pase y sala, avisados</span></li>
+          <li class="on"><svg><use href="#i-check"/></svg><span data-i="tk4">Los móviles del equipo en turno, también</span></li>
+        </ul>
+        <div class="tk-foot"><span data-i="tkFoot">Sin tocar una pantalla</span><span data-i="demoData">Datos de ejemplo</span></div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<section class="board sec" id="voz" aria-labelledby="voz-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-mic"/></svg><span data-i="w1">En el pase</span></span>
+      <h2 class="chalk" id="voz-h" data-i="voxH">Manos ocupadas. La voz, libre.</h2>
+      <p class="lede" data-i="voxL">En pleno servicio nadie tiene tiempo de buscar un botón. Cualquiera del equipo dice lo que pasa y TablaVista lo apunta, avisa a quien tiene que saberlo y cambia la caja. <strong>Toca una frase y mira dónde llega.</strong></p>
+    </div>
+    <div class="voice">
+      <div class="says" id="says" role="group" aria-label="Frases"></div>
+      <div class="stage">
+        <div class="ticket" aria-live="polite">
+          <span class="pin" aria-hidden="true"></span>
+          <div class="tk-head"><span data-i="tkHead">Comanda · voz</span><span id="vClock"></span></div>
+          <p class="tk-said"><svg><use href="#i-mic"/></svg><span id="vWho"></span></p>
+          <p class="tk-quote" id="vQuote"></p>
+          <ul class="tk-lines" id="vLines"></ul>
+        </div>
+        <div class="places">
+          <div class="place" id="p-caja"><h3><svg><use href="#i-till"/></svg><span data-i="pCaja">Caja</span></h3><ul></ul></div>
+          <div class="place" id="p-reservas"><h3><svg><use href="#i-cal"/></svg><span data-i="pRes">Reservas de mañana</span></h3><ul></ul></div>
+          <div class="place" id="p-equipo"><h3><svg><use href="#i-users"/></svg><span data-i="pEq">Móviles del equipo</span></h3><ul></ul></div>
+          <div class="place" id="p-barra"><h3><svg><use href="#i-glass"/></svg><span data-i="pBar">Barra y pedidos</span></h3><ul></ul></div>
+        </div>
+        <p class="demo-note" data-i="voxNote">Ejemplo con datos inventados. Las órdenes son las reales: reservar, confirmar, agotar, avisar, pedir ayuda, llegar tarde, abrir una botella, apuntar lo que falta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board sec" id="telefono" aria-labelledby="tel-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-phone"/></svg><span data-i="w2">En la sala, de noche</span></span>
+      <h2 class="chalk" id="tel-h" data-i="telH">Cerrado. Y el teléfono sigue reservando.</h2>
+      <p class="lede" data-i="telL">Un asistente contesta cuando no puede nadie: busca hueco, apunta la reserva, la confirma por correo y, si el cliente quiere hablar con una persona, le pasa la llamada al restaurante.</p>
+    </div>
+    <div class="call">
+      <div>
+        <div class="clock">23:40<small data-i="telClock">el comedor recogido, la cocina apagada</small></div>
+        <ul class="facts">
+          <li data-i="f1">Habla 6 idiomas</li>
+          <li data-i="f2">Avisa de que es un asistente</li>
+          <li data-i="f3">Pasa la llamada al restaurante</li>
+          <li data-i="f4">Deletrea bien los correos</li>
+          <li data-i="f5">Complemento opcional</li>
+        </ul>
+      </div>
+      <div class="calllog">
+        <div class="ticket">
+          <span class="pin" aria-hidden="true"></span>
+          <div class="tk-head"><span data-i="callHead">Llamada · 23:40</span><span data-i="demoData">Datos de ejemplo</span></div>
+          <ol class="lines" id="callLines"></ol>
+          <button class="replay" type="button" id="callReplay"><svg><use href="#i-replay"/></svg><span data-i="replay">Repetir la llamada</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board sec" id="saber" aria-labelledby="saber-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-book"/></svg><span data-i="w3">En la formación</span></span>
+      <h2 class="chalk" id="saber-h" data-i="sabH">Cada plato, bien dicho. Por alguien de allí.</h2>
+      <p class="lede" data-i="sabL"><strong>Saber</strong> es la escuela de tu equipo dentro de la app: cada plato, corte, queso, vino y bebida tiene su ficha, y cada nombre lo pronuncia una voz nativa, de mujer o de hombre. Toca un nombre y escúchalo.</p>
+    </div>
+    <div class="spec">
+      <div class="spec-top">
+        <span class="spec-lang"><span class="flag" id="specFlag">IT</span><span id="specLang">Italiano</span></span>
+        <div class="voices">
+          <button type="button" data-voice="f"><svg><use href="#i-speaker"/></svg><span data-i="vF">Voz de mujer</span></button>
+          <button type="button" data-voice="m"><svg><use href="#i-speaker"/></svg><span data-i="vM">Voz de hombre</span></button>
+        </div>
+      </div>
+      <p class="spec-name" id="specName">Parmigiano Reggiano</p>
+      <div class="spec-sizes" aria-hidden="true"><span class="s1">Parmigiano Reggiano</span><span class="s2">Parmigiano Reggiano</span><span class="s3">Parmigiano Reggiano</span></div>
+      <div class="names" id="names" role="group" aria-label="Nombres"></div>
+    </div>
+    <div class="nums">
+      <div class="num"><b>134.713</b><span data-i="n1">grabaciones de nombres, listas para sonar</span></div>
+      <div class="num"><b>45</b><span data-i="n2">idiomas, cada uno con su propia voz</span></div>
+      <div class="num"><b>3.486</b><span data-i="n3">fichas de platos y productos para estudiar y practicar</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="board sec" id="bodega" aria-labelledby="bod-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-bottle"/></svg><span data-i="w4">En la bodega</span></span>
+      <h2 class="chalk" id="bod-h" data-i="bodH">Tu carta de vinos, escrita en un minuto.</h2>
+      <p class="lede" data-i="bodL">Nadie debería teclear 300 botellas a mano. Escribe dos letras, toca la botella y entra en tu carta con su zona, su uva y su nombre bien dicho.</p>
+    </div>
+    <div class="cellar">
+      <div>
+        <div class="big" id="bigNum">16.000</div>
+        <p class="big-cap" data-i="bigCap">vinos, cervezas y licores añadidos en una semana. Sacados de las cartas de más de 200 restaurantes serios, de Le Taillevent a Rekondo, y comprobados en la web de cada bodega.</p>
+        <div class="finder">
+          <label for="q" data-i="findLabel">Prueba: busca una botella</label>
+          <div class="field"><svg><use href="#i-search"/></svg><input id="q" type="search" autocomplete="off" placeholder="pingus, musar, ardanza…" data-iph="findPh"></div>
+          <ul class="hits" id="hits"></ul>
+        </div>
+      </div>
+      <div>
+        <div class="carta">
+          <h3 data-i="cartaH">Carta de vinos</h3>
+          <p class="venue">La Higuera</p>
+          <ol id="carta"><li class="hint" data-i="cartaHint">Toca + en una botella y aparece aquí.</li></ol>
+        </div>
+        <p class="sources" data-i="bodSrc">Ya está dentro el 74 % de las bodegas que salen en las mejores cartas de España. Cada noche entran más, y lo que no se puede comprobar no entra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board sec" id="puestos" aria-labelledby="pue-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-users"/></svg><span data-i="w5">En cada puesto</span></span>
+      <h2 class="chalk" id="pue-h" data-i="pueH">Cada uno abre la app en su propio día.</h2>
+      <p class="lede" data-i="pueL">Recorrimos la jornada de cada puesto, de la primera tarea al cierre. Cada uno ve solo lo suyo, y lo ve a su hora.</p>
+    </div>
+    <div class="roles">
+      <div class="role-tabs" role="tablist" id="roleTabs" aria-label="Puestos"></div>
+      <div>
+        <div class="phone"><div class="screen" role="tabpanel" id="rolePanel" aria-live="polite"></div></div>
+        <p class="role-cap" id="roleCap"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board sec" id="todo" aria-labelledby="todo-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-chart"/></svg><span data-i="w6">En la oficina</span></span>
+      <h2 class="chalk" id="todo-h" data-i="todoH">Y todo lo de siempre, hecho como debe.</h2>
+    </div>
+    <div class="specials" id="specials"></div>
+  </div>
+</section>
+
+<section class="board sec" id="nadie" aria-labelledby="nadie-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-check"/></svg><span data-i="w7">Comparado fila a fila</span></span>
+      <h2 class="chalk" id="nadie-h" data-i="nadieH">32 cosas que no anuncia ningún otro.</h2>
+      <p class="lede" data-i="nadieL">Leímos en sus propias páginas lo que ofrecen 26 sistemas que se venden en España, de Ágora y CoverManager a TheFork, Lightspeed y Square. Estas son algunas de las 32 cosas que TablaVista hace y ninguno de ellos anuncia.</p>
+    </div>
+    <div class="tally-wrap">
+      <div class="tally">
+        <svg viewBox="0 0 520 250" id="tallySvg" role="img" aria-label="32"></svg>
+        <div class="tally-num">32<span data-i="tallyCap">de 68 capacidades comparadas, solo en TablaVista</span></div>
+      </div>
+      <ul class="only" id="only"></ul>
+    </div>
+    <p class="fine" data-i="fine">Comparación del 15 de octubre de 2026 con lo que cada marca publica. Lo que no publican cuenta como «no sabemos», nunca como un no. Si un cliente cree que su sistema lo hace, que se lo pida por escrito a su proveedor.</p>
+  </div>
+</section>
+
+<section class="board sec" id="peliculas" aria-labelledby="film-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-play"/></svg><span data-i="w8">La app de verdad</span></span>
+      <h2 class="chalk" id="film-h" data-i="filmH">Sin trucos: grabado en la pantalla.</h2>
+    </div>
+    <div class="films" id="films"></div>
+  </div>
+</section>
+
+<section class="board sec" id="ritmo" aria-labelledby="ritmo-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="where"><svg><use href="#i-pot"/></svg><span data-i="w9">En los fogones</span></span>
+      <h2 class="chalk" id="ritmo-h" data-i="ritmoH">285 mejoras en 8 días. Y la cocina sigue encendida.</h2>
+      <p class="lede" data-i="ritmoL">Cada mejora pasa pruebas automáticas antes de llegar a la app, y si algo falla, la app vuelve sola a la versión anterior.</p>
+    </div>
+    <div class="pace">
+      <div>
+        <div class="bars" id="bars" role="img" aria-label="36, 55, 20, 36, 48, 31, 27, 32"></div>
+        <div class="bar-days" id="barDays"></div>
+      </div>
+      <div>
+        <p class="chalk now-h" data-i="nowH">Ahora mismo, en el fuego:</p>
+        <ul class="cooking">
+          <li><span class="dot"></span><div><b data-i="k1">La cocina, también por voz</b><small data-i="k1s">Stock, mermas, producción, temperaturas y recetas, dichos en voz alta.</small></div></li>
+          <li><span class="dot"></span><div><b data-i="k2">946 historias de platos en cuatro idiomas</b><small data-i="k2s">Para el cliente de fuera y para el camarero que viene de fuera.</small></div></li>
+          <li><span class="dot"></span><div><b data-i="k3">El cuadrante dice cuánta gente falta</b><small data-i="k3s">Cada día de la semana, por servicio y por puesto.</small></div></li>
+          <li><span class="dot"></span><div><b data-i="k4">Notas de cata para las botellas nuevas</b><small data-i="k4s">Cuerpo, acidez y tanino, solo cuando se pueden comprobar.</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board close" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 class="chalk" id="close-h" data-i="closeH">Mañana, en tu restaurante.</h2>
+    <p class="lede" data-i="closeL">Una demo con tu carta y tus mesas, en tu local, con una tablet.</p>
+    <div class="ctas">
+      <a class="btn btn-red" href="https://tablavista.com/#demo" data-i="ctaDemo">Pide una demo</a>
+      <a class="btn btn-chalk" href="mailto:gildas@tablavista.com">gildas@tablavista.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="board">
+  <div class="wrap foot">
+    <span>TablaVista · <span data-i="tagline">Gestión para restaurantes</span></span>
+    <span data-i="footNote">Los ejemplos usan La Higuera, un restaurante de demostración con datos inventados.</span>
+  </div>
+</footer>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Vídeo">
+  <button class="x" type="button" id="sheetClose" aria-label="Cerrar"><svg><use href="#i-x"/></svg></button>
+  <video id="sheetVideo" controls playsinline preload="none"></video>
+</div>
+
+<script src="/js/app.js?v=1" defer></script>
 </body>
 </html>
