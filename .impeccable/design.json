@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T00:00:00Z",
+  "title": "Design System: TablaVista pitch",
+  "extensions": {
+    "colorMeta": {
+      "slate": { "role": "neutral", "displayName": "Board Slate", "canonical": "#292823", "tonalRamp": ["#141310", "#1f1e1a", "#292823", "#33322c", "#4a4840", "#6e6b61", "#a09c90", "#e4e0d6"] },
+      "slate-deep": { "role": "neutral", "displayName": "Deep Slate", "canonical": "#1f1e1a", "tonalRamp": ["#0e0e0c", "#171613", "#1f1e1a", "#2b2a25", "#423f38", "#66635a", "#9a968a", "#e2ded4"] },
+      "slate-lift": { "role": "neutral", "displayName": "Lifted Slate (declared, unused)", "canonical": "#33322c", "tonalRamp": ["#161511", "#22211d", "#33322c", "#3f3e37", "#55534b", "#78756b", "#a8a498", "#e6e2d8"] },
+      "chalk": { "role": "neutral", "displayName": "Chalk", "canonical": "#f1eee6", "tonalRamp": ["#2a2925", "#4d4b44", "#76736a", "#a09c90", "#bdb8ab", "#d9d4c7", "#f1eee6", "#fbfaf6"] },
+      "chalk-dim": { "role": "neutral", "displayName": "Dim Chalk", "canonical": "#bdb8ab", "tonalRamp": ["#2a2925", "#4a4840", "#6e6b61", "#948f83", "#bdb8ab", "#d2cec2", "#e6e3da", "#f6f4ee"] },
+      "chalk-faint": { "role": "neutral", "displayName": "Faint Chalk", "canonical": "#a09c90", "tonalRamp": ["#262520", "#403e37", "#5d5a51", "#7e7a6f", "#a09c90", "#c0bcb0", "#dcd8cd", "#f2f0ea"] },
+      "red": { "role": "primary", "displayName": "Brand Red", "canonical": "#f04b32", "tonalRamp": ["#3d0f07", "#6b1b0e", "#9c2615", "#c8341c", "#f04b32", "#ff6a52", "#ffa595", "#ffe1da"] },
+      "red-deep": { "role": "primary", "displayName": "Deep Red", "canonical": "#c8341c", "tonalRamp": ["#300b05", "#56150a", "#80200f", "#b52d17", "#c8341c", "#e2553d", "#f59a8a", "#fddcd5"] },
+      "red-press": { "role": "primary", "displayName": "Pressed Red", "canonical": "#b52d17", "tonalRamp": ["#2b0904", "#4f1309", "#781d0e", "#b52d17", "#d23f27", "#ec6b55", "#f7a798", "#fde0da"] },
+      "red-chalk": { "role": "primary", "displayName": "Red Chalk", "canonical": "#ff6a52", "tonalRamp": ["#43110a", "#751f12", "#a92e1b", "#d94128", "#ff6a52", "#ff8c78", "#ffb8ab", "#ffe6e0"] },
+      "paper": { "role": "neutral", "displayName": "Card Stock", "canonical": "#fbfaf6", "tonalRamp": ["#292823", "#5d5a51", "#8e8a7e", "#bdb8ab", "#d9d4c7", "#ece9e1", "#f6f4ee", "#fbfaf6"] },
+      "paper-ink": { "role": "neutral", "displayName": "Paper Ink", "canonical": "#292823", "tonalRamp": ["#141310", "#1f1e1a", "#292823", "#3a3934", "#5d5a51", "#8e8a7e", "#c4c0b4", "#f1eee6"] },
+      "paper-dim": { "role": "neutral", "displayName": "Paper Grey", "canonical": "#5d5a51", "tonalRamp": ["#1d1c18", "#2f2d28", "#45433c", "#5d5a51", "#77746a", "#9a968a", "#c6c2b6", "#ece9e1"] },
+      "rule": { "role": "neutral", "displayName": "Ticket Rule", "canonical": "#d9d4c7", "tonalRamp": ["#3a3833", "#5f5c53", "#878377", "#aeaa9d", "#c6c1b4", "#d9d4c7", "#e9e6dd", "#f7f5f0"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Chalk Display", "purpose": "The hero line only; section closers at clamp(3rem, 9vw, 6rem)." },
+      "numeral": { "displayName": "Chalk Numeral", "purpose": "The one big figure of a section: cellar count, phone clock, tally. Tabular figures." },
+      "headline": { "displayName": "Chalk Headline", "purpose": "Every section heading, balanced wrap." },
+      "title": { "displayName": "Chalk Title", "purpose": "Dish names, voice phrases, specials, role tabs." },
+      "lede": { "displayName": "Lede", "purpose": "Section introductions in dim chalk, max 58ch, key phrase bolded back to full chalk." },
+      "body": { "displayName": "Body", "purpose": "Running text on slate and on paper." },
+      "label": { "displayName": "Label", "purpose": "Uppercase course names, panel headings, role line; names the item beside it, never a category over a heading." },
+      "ticket": { "displayName": "Ticket Mono", "purpose": "Printed comanda tickets, language codes, film lengths, replay control." },
+      "ticket-quote": { "displayName": "Spoken Quote", "purpose": "The spoken command printed on a ticket." }
+    },
+    "shadows": [
+      { "name": "pinned-paper", "value": "0 30px 50px -28px rgba(0,0,0,.85), 0 2px 0 rgba(0,0,0,.08)", "purpose": "Comanda tickets and the carta: card stock pinned off the board." },
+      { "name": "phone", "value": "0 40px 60px -30px rgba(0,0,0,.9), inset 0 0 0 2px #3a3934", "purpose": "The staff phone frame." },
+      { "name": "cta", "value": "0 10px 22px -14px rgba(0,0,0,.9)", "purpose": "The red primary button at rest." },
+      { "name": "cta-hover", "value": "0 16px 28px -16px rgba(0,0,0,.95)", "purpose": "The red primary button on hover." },
+      { "name": "film", "value": "0 18px 30px -20px rgba(0,0,0,.9)", "purpose": "Film poster frames." },
+      { "name": "pin", "value": "0 3px 5px rgba(0,0,0,.45), inset -3px -3px 0 rgba(0,0,0,.18)", "purpose": "The red pin head on paper." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "The single easing for every transition and keyframe." },
+      { "name": "state", "value": "0.2s to 0.4s", "purpose": "Hover, pressed, hit and reveal transitions." },
+      { "name": "board-writes-itself", "value": "write .9s clip-path reveal (delays .15s/.55s/.95s), menu items .6s from 1.25s staggered .13s, ticket pinup .9s at .4s", "purpose": "One orchestrated opening on load; removed under prefers-reduced-motion." },
+      { "name": "mic-pulse", "value": "pulse 1.4s infinite, ring 0 to 14px red at .55 alpha", "purpose": "Active voice phrase; removed under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "900px" },
+      { "name": "phone", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled CTA per viewport: «Pide una demo».",
+      "html": "<a class=\"ds-btn-red\" href=\"#\">Pide una demo</a>",
+      "css": ".ds-btn-red{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:12px;font:700 1rem/1 Figtree,Optima,'Segoe UI',system-ui,sans-serif;text-decoration:none;background:#c8341c;color:#fff;box-shadow:0 10px 22px -14px rgba(0,0,0,.9);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-btn-red:hover{transform:translateY(-2px);background:#b52d17;box-shadow:0 16px 28px -16px rgba(0,0,0,.95)}.ds-btn-red:active{transform:scale(.97)}.ds-btn-red:focus-visible{outline:2px dashed #ff6a52;outline-offset:4px}"
+    },
+    {
+      "name": "Chalk Button",
+      "kind": "button",
+      "refersTo": "button-chalk",
+      "description": "Secondary action on slate, chalk outline.",
+      "html": "<button class=\"ds-btn-chalk\" type=\"button\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"currentColor\"><path d=\"M7 4.5v15l12.5-7.5z\"/></svg>Mira la historia en 1 minuto</button>",
+      "css": ".ds-btn-chalk{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:12px;font:700 1rem/1 Figtree,Optima,'Segoe UI',system-ui,sans-serif;background:#292823;color:#f1eee6;border:1.5px solid rgba(241,238,230,.45);cursor:pointer;transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s}.ds-btn-chalk:hover{border-color:#f1eee6;transform:translateY(-2px)}.ds-btn-chalk:active{transform:scale(.97)}.ds-btn-chalk:focus-visible{outline:2px dashed #ff6a52;outline-offset:4px}"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "nav",
+      "refersTo": "lang-toggle-active",
+      "description": "ES/EN pill toggle in the top bar; the pressed option fills with chalk.",
+      "html": "<div class=\"ds-lang\" role=\"group\"><button type=\"button\" aria-pressed=\"true\">ES</button><button type=\"button\" aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-lang{display:inline-flex;border:1.5px solid #a09c90;border-radius:999px;padding:3px;background:#292823}.ds-lang button{border:0;background:none;padding:6px 14px;border-radius:999px;font:600 .82rem/1 Figtree,system-ui,sans-serif;letter-spacing:.06em;color:#bdb8ab;cursor:pointer}.ds-lang button[aria-pressed=true]{background:#f1eee6;color:#292823}.ds-lang button:focus-visible{outline:2px dashed #ff6a52;outline-offset:4px}"
+    },
+    {
+      "name": "Menu Line",
+      "kind": "nav",
+      "description": "A menú del día course: label, chalk dish, dotted leader, red-chalk action. The page's navigation.",
+      "html": "<div class=\"ds-menu\"><a href=\"#\"><span class=\"c\">Primero</span><span class=\"d\">Un teléfono que reserva solo</span><span class=\"l\"></span><span class=\"g\">verlo <svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 4v15M6 13l6 6 6-6\"/></svg></span></a></div>",
+      "css": ".ds-menu{background:#292823;padding:12px 16px}.ds-menu a{display:grid;grid-template-columns:auto minmax(0,auto) 1fr auto;align-items:baseline;gap:12px;text-decoration:none;padding:5px 0;color:#f1eee6}.ds-menu .c{font:600 .74rem/1 Figtree,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#a09c90;width:6.6em}.ds-menu .d{font:700 1.35rem Kalam,'Segoe Print',cursive}.ds-menu .l{border-bottom:2px dotted rgba(241,238,230,.28);transform:translateY(-5px);min-width:16px}.ds-menu .g{font:600 .85rem/1 Figtree,system-ui,sans-serif;color:#ff6a52;display:flex;gap:6px;align-items:center;white-space:nowrap}.ds-menu a:hover .d{color:#fff}.ds-menu a:hover .l{border-bottom-color:#ff6a52}.ds-menu a:focus-visible{outline:2px dashed #ff6a52;outline-offset:4px;border-radius:6px}"
+    },
+    {
+      "name": "Comanda Ticket",
+      "kind": "card",
+      "refersTo": "comanda-ticket",
+      "description": "Signature: pinned, tilted card-stock ticket where every spoken command prints its effect.",
+      "html": "<div class=\"ds-ticket\"><span class=\"pin\"></span><div class=\"hd\"><span>Comanda · voz</span><span>21:47</span></div><p class=\"q\">«Se acabó el pulpo.»</p><ul><li><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.5 12.5l5 5 10-11\"/></svg><span><b>Pulpo a la gallega</b> marcado como agotado</span></li><li><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.5 12.5l5 5 10-11\"/></svg><span>La caja ya no deja venderlo</span></li></ul></div>",
+      "css": ".ds-ticket{position:relative;max-width:340px;margin:20px;background:#fbfaf6;color:#292823;border-radius:4px 4px 0 0;padding:22px 22px 30px;font:500 .9rem/1.5 'JetBrains Mono',ui-monospace,Menlo,monospace;box-shadow:0 30px 50px -28px rgba(0,0,0,.85),0 2px 0 rgba(0,0,0,.08);transform:rotate(1.2deg)}.ds-ticket::after{content:'';position:absolute;left:0;right:0;bottom:-10px;height:12px;background:linear-gradient(-45deg,transparent 6px,#fbfaf6 6px) 0 0/12px 12px repeat-x,linear-gradient(45deg,transparent 6px,#fbfaf6 6px) 0 0/12px 12px repeat-x}.ds-ticket .pin{position:absolute;top:-9px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#f04b32;box-shadow:0 3px 5px rgba(0,0,0,.45),inset -3px -3px 0 rgba(0,0,0,.18)}.ds-ticket .hd{display:flex;justify-content:space-between;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#5d5a51;border-bottom:1.5px dashed #d9d4c7;padding-bottom:10px}.ds-ticket .q{font:600 1.18rem/1.35 Figtree,system-ui,sans-serif;margin:14px 0 0}.ds-ticket ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1.5px dashed #d9d4c7;display:grid;gap:7px}.ds-ticket li{display:grid;grid-template-columns:18px 1fr;gap:8px}.ds-ticket li svg{margin-top:2px;color:#c8341c}"
+    },
+    {
+      "name": "Live Panel",
+      "kind": "card",
+      "description": "A bordered panel on slate (caja, reservas, equipo, barra) that lights red-chalk when a voice command reaches it.",
+      "html": "<div class=\"ds-place hit\"><h3><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"9\" width=\"17\" height=\"11\" rx=\"2\"/><path d=\"M7 9V4.5h10V9M7 13.5h2M11 13.5h2M15 13.5h2M7 16.5h10\"/></svg>Caja</h3><ul><li><span>Pulpo a la gallega</span><span class=\"tag\">Agotado</span></li><li class=\"out\"><span>Croquetas</span><small>14,00</small></li></ul></div>",
+      "css": ".ds-place{border:1.5px solid rgba(241,238,230,.16);border-radius:14px;padding:14px 14px 12px;background:#24231f;color:#f1eee6;font:400 .92rem/1.6 Figtree,system-ui,sans-serif;max-width:300px;transition:border-color .3s,background-color .3s}.ds-place.hit{border-color:#ff6a52;background:#2f2722}.ds-place h3{margin:0;font:700 .76rem/1 Figtree,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#bdb8ab;display:flex;align-items:center;gap:8px}.ds-place h3 svg{color:#f1eee6}.ds-place ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}.ds-place li{display:flex;justify-content:space-between;gap:8px}.ds-place li small{color:#bdb8ab;font-size:.82rem}.ds-place li.out span:first-child{text-decoration:line-through;text-decoration-color:#ff6a52;text-decoration-thickness:2px;color:#bdb8ab}.ds-place .tag{font:700 .75rem/1 Figtree,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:6px;background:#c8341c;color:#fff}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Cellar finder: chalk-outlined dark field with a line icon and red-chalk caret.",
+      "html": "<label class=\"ds-field\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"M15.5 15.5L20 20\"/></svg><input placeholder=\"Busca una bodega o un vino\"></label>",
+      "css": ".ds-field{display:flex;align-items:center;gap:10px;border:1.5px solid rgba(241,238,230,.3);border-radius:14px;padding:4px 6px 4px 14px;background:#201f1b;max-width:360px}.ds-field:focus-within{border-color:#f1eee6}.ds-field svg{color:#bdb8ab;flex:none}.ds-field input{flex:1;min-width:0;background:none;border:0;outline:0;color:#f1eee6;font:500 1.05rem/1 Figtree,system-ui,sans-serif;padding:12px 0;caret-color:#ff6a52}.ds-field input::placeholder{color:#a09c90}"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "38px square action (listen, add); add is chalk-filled, playing turns brand red.",
+      "html": "<span class=\"ds-icons\"><button class=\"ds-icon-btn\" aria-label=\"Escuchar\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 9.5h3.5L12 5.5v13l-4.5-4H4z\"/><path d=\"M15.5 9a4 4 0 0 1 0 6\"/></svg></button><button class=\"ds-icon-btn add\" aria-label=\"Añadir\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg></button></span>",
+      "css": ".ds-icons{display:inline-flex;gap:6px;padding:10px;background:#292823}.ds-icon-btn{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;border:1.5px solid rgba(241,238,230,.25);background:none;color:#f1eee6;cursor:pointer;transition:background-color .2s,border-color .2s}.ds-icon-btn:hover{border-color:#f1eee6}.ds-icon-btn.add{background:#f1eee6;color:#292823;border-color:#f1eee6}.ds-icon-btn.add:hover{background:#fff}.ds-icon-btn:focus-visible{outline:2px dashed #ff6a52;outline-offset:4px}"
+    },
+    {
+      "name": "Dotted-Leader Ledger",
+      "kind": "custom",
+      "description": "Chalk label, dotted leader, big Kalam figure; a hot line turns red chalk.",
+      "html": "<ol class=\"ds-ledger\"><li class=\"hot\"><span>Solo TablaVista</span><i></i><b>32</b></li><li><span>Sistemas comparados</span><i></i><b>26</b></li></ol>",
+      "css": ".ds-ledger{list-style:none;margin:0;padding:12px 16px;background:#292823;display:grid;gap:4px}.ds-ledger li{display:grid;grid-template-columns:minmax(0,auto) 1fr auto;align-items:baseline;gap:14px;padding:10px 0}.ds-ledger span{font:700 1.25rem Kalam,'Segoe Print',cursive;color:#bdb8ab}.ds-ledger i{border-bottom:2px dotted rgba(241,238,230,.28);transform:translateY(-6px);min-width:20px}.ds-ledger b{font:700 2.6rem/1 Kalam,'Segoe Print',cursive;color:#f1eee6;font-variant-numeric:tabular-nums}.ds-ledger li.hot b,.ds-ledger li.hot span{color:#ff6a52}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Menú del Día Pizarra",
+    "overview": "The whole page is one continuous slate board, the kind a Spanish restaurant chalks its menú del día on. Offers are written in hand lettering like today's dishes, dotted leaders run from each dish to what it does, and the system answers on printed paper pinned to the board: comanda tickets, a carta de vinos, a staff phone screen. The board is the voice of the restaurant; the paper is the voice of the machine.\n\nDensity is that of a working board: generous vertical rhythm between sections, tight lists inside them. Chalk appears in two strengths (full chalk for what matters, dim chalk for what explains), and brand red is the chalk you use for HOY, for what is new, for what is sold out. The board is flat chalk on lightly smudged slate; paper is the only thing that lifts.",
+    "keyCharacteristics": [
+      "One dark slate surface from top to foot; sections are separated by faint chalk rules, never by colour bands.",
+      "Kalam hand lettering for everything the restaurant would chalk; Figtree for explanation; monospace only on printed tickets.",
+      "Paper objects (tickets, carta, phone screen) are tilted a degree or so, lifted by a deep soft shadow, and pinned.",
+      "Dotted leaders link a name to its value or action, as on a real menu.",
+      "Single-weight line icons, drawn in strokes like chalk."
+    ],
+    "rules": [
+      { "name": "The Three Reds Rule", "body": "Brand red fills; red chalk writes on slate; deep red carries white text or sits on paper. Never put `red` as text on slate or `red-chalk` on paper.", "section": "colors" },
+      { "name": "The Red Means Today Rule", "body": "Red marks what is happening now: HOY, the active voice line, the new or sold-out item, the one CTA. A screen where red decorates is wrong.", "section": "colors" },
+      { "name": "The Who Writes It Rule", "body": "If the restaurant would chalk it, it is Kalam. If the system printed it, it is monospace. Everything else on paper or slate is Figtree.", "section": "typography" },
+      { "name": "The Flat Chalk Rule", "body": "Chalk lettering is flat colour. No displacement, roughening or texture filters on type or strokes.", "section": "typography" },
+      { "name": "The Only Paper Lifts Rule", "body": "Nothing chalked on the board casts a shadow. Panels on slate are bordered or tinted; shadows belong to paper, the phone, film posters and the one red CTA.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every section on the one slate board; separate sections with a 2px chalk rule at .08 alpha.",
+      "Do set anything the restaurant would chalk in Kalam 700, and anything a printer would print in JetBrains Mono on paper.",
+      "Do show the system's answer on a pinned paper object (ticket, carta, phone screen) with the pinned-paper shadow and a tilt under 1.5deg.",
+      "Do link names to values or actions with 2px dotted leaders.",
+      "Do draw icons as single-weight line drawings (24px grid, 2 to 2.6 stroke, round caps), coloured with currentColor.",
+      "Do use red-deep under white text and red-chalk for red on slate.",
+      "Do label demo data as demo data, in faint chalk."
+    ],
+    "donts": [
+      "Don't apply roughening, displacement or texture filters to chalk lettering; chalk is flat colour.",
+      "Don't cast shadows from anything chalked on the board.",
+      "Don't set Figtree or monospace for headings on the board.",
+      "Don't put a small uppercase label above a heading as a category; labels name the item beside them.",
+      "Don't add a second filled CTA to a viewport; the chalk outline button is the secondary."
+    ]
+  }
+}
