@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Kalam:wght@400;700&display=swap">
-<link rel="stylesheet" href="/css/site.css?v=5">
+<link rel="stylesheet" href="/css/site.css?v=6">
 <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
@@ -176,21 +176,18 @@
     </div>
     <div class="spec">
       <div class="spec-top">
-        <span class="spec-lang"><span class="flag" id="specFlag">IT</span><span id="specLang">Italiano</span></span>
-        <div class="voices">
-          <button type="button" data-voice="f"><svg><use href="#i-speaker"/></svg><span data-i="vF">Voz de mujer</span></button>
-          <button type="button" data-voice="m"><svg><use href="#i-speaker"/></svg><span data-i="vM">Voz de hombre</span></button>
-        </div>
+        <p class="spec-name" id="specName">Pulpo</p>
+        <div class="sets" id="sets" role="group" aria-label="Producto"></div>
       </div>
-      <p class="spec-name" id="specName">Parmigiano Reggiano</p>
-      <div class="spec-sizes" aria-hidden="true"><span class="s1">Parmigiano Reggiano</span><span class="s2">Parmigiano Reggiano</span><span class="s3">Parmigiano Reggiano</span></div>
+      <ol class="said" id="said"></ol>
+      <p class="spec-more" data-i="specMore">Y cada plato, con su nombre de origen:</p>
       <div class="names" id="names" role="group" aria-label="Nombres"></div>
     </div>
-    <div class="nums">
-      <div class="num"><b>134.713</b><span data-i="n1">grabaciones de nombres, listas para sonar</span></div>
-      <div class="num"><b>45</b><span data-i="n2">idiomas, cada uno con su propia voz</span></div>
-      <div class="num"><b>3.486</b><span data-i="n3">fichas de platos y productos para estudiar y practicar</span></div>
-    </div>
+    <ol class="ledger" id="ledgerSaber">
+      <li><span data-i="n1">Grabaciones de nombres, listas para sonar</span><i></i><b data-n="134713">134.713</b></li>
+      <li><span data-i="n2">Idiomas, cada uno con su propia voz</span><i></i><b data-n="45">45</b></li>
+      <li><span data-i="n3">Fichas de platos y productos para estudiar</span><i></i><b data-n="3486">3.486</b></li>
+    </ol>
   </div>
 </section>
 
@@ -202,8 +199,12 @@
     </div>
     <div class="cellar">
       <div>
-        <div class="big" id="bigNum">16.000</div>
-        <p class="big-cap" data-i="bigCap">vinos, cervezas y licores añadidos en una semana. Sacados de las cartas de más de 200 restaurantes serios, de Le Taillevent a Rekondo, y comprobados en la web de cada bodega.</p>
+        <ol class="ledger ledger-big">
+          <li><span data-i="lb1">Vinos, cervezas y licores nuevos, en una semana</span><i></i><b data-n="16000" id="bigNum">16.000</b></li>
+          <li><span data-i="lb2">Cartas de restaurantes serios leídas</span><i></i><b data-n="200" data-plus="1">200+</b></li>
+          <li><span data-i="lb3">Bodegas de las mejores cartas de España, ya dentro</span><i></i><b data-n="74" data-pct="1">74 %</b></li>
+        </ol>
+        <p class="big-cap" data-i="bigCap">De Le Taillevent a Rekondo. Cada botella, comprobada en la web de su bodega o de un distribuidor. Lo que no se puede comprobar no entra.</p>
         <div class="finder">
           <label for="q" data-i="findLabel">Prueba: busca una botella</label>
           <div class="field"><svg><use href="#i-search"/></svg><input id="q" type="search" autocomplete="off" placeholder="pingus, musar, ardanza…" data-iph="findPh"></div>
@@ -212,11 +213,11 @@
       </div>
       <div>
         <div class="carta">
-          <h3 data-i="cartaH">Carta de vinos</h3>
           <p class="venue">La Higuera</p>
+          <p class="carta-sub" data-i="cartaH">Carta de vinos</p>
           <ol id="carta"><li class="hint" data-i="cartaHint">Toca + en una botella y aparece aquí.</li></ol>
         </div>
-        <p class="sources" data-i="bodSrc">Ya está dentro el 74 % de las bodegas que salen en las mejores cartas de España. Cada noche entran más, y lo que no se puede comprobar no entra.</p>
+        
       </div>
     </div>
   </div>
@@ -256,7 +257,7 @@
     <div class="tally-wrap">
       <div class="tally">
         <svg viewBox="0 0 520 250" id="tallySvg" role="img" aria-label="32"></svg>
-        <div class="tally-num">32<span data-i="tallyCap">de 68 capacidades comparadas, solo en TablaVista</span></div>
+        <ol class="ledger"><li><span data-i="t1">Capacidades comparadas, fila a fila</span><i></i><b data-n="68">68</b></li><li><span data-i="t2">Sistemas que se venden en España</span><i></i><b data-n="26">26</b></li><li class="hot"><span data-i="t3">Solo en TablaVista</span><i></i><b data-n="32">32</b></li></ol>
       </div>
       <ul class="only" id="only"></ul>
     </div>
@@ -303,7 +304,6 @@
     <p class="lede" data-i="closeL">Una demo con tu carta y tus mesas, en tu local, con una tablet.</p>
     <div class="ctas">
       <a class="btn btn-red" href="https://tablavista.com/#demo" data-i="ctaDemo">Pide una demo</a>
-      <a class="btn btn-chalk" href="mailto:gildas@tablavista.com">gildas@tablavista.com</a>
     </div>
   </div>
 </section>
@@ -321,6 +321,6 @@
   <video id="sheetVideo" controls playsinline preload="none"></video>
 </div>
 
-<script src="/js/app.js?v=5" defer></script>
+<script src="/js/app.js?v=6" defer></script>
 </body>
 </html>

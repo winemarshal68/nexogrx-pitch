@@ -47,14 +47,20 @@
     w3: "In training",
     sabH: "Every dish, said right. By someone from there.",
     sabL: "<strong>Saber</strong> is your team's school inside the app: every dish, cut, cheese, wine and drink has its study card, and every name is spoken by a native voice, a woman's or a man's. Tap a name and listen.",
-    vF: "Woman's voice", vM: "Man's voice",
-    n1: "recordings of names, ready to play",
-    n2: "languages, each with its own voice",
-    n3: "dish and product cards to study and practise",
+    specMore: "And every dish, by its name from home:",
+    n1: "Name recordings, ready to play",
+    n2: "Languages, each with its own voice",
+    n3: "Dish and product cards to study",
+    lb1: "New wines, beers and spirits, in one week",
+    lb2: "Serious restaurants' wine lists read",
+    lb3: "Wineries from Spain's best lists, already in",
+    t1: "Capabilities compared, row by row",
+    t2: "Systems sold in Spain",
+    t3: "Only in TablaVista",
     w4: "In the cellar",
     bodH: "Your wine list, written in a minute.",
     bodL: "Nobody should type 300 bottles by hand. Type two letters, tap the bottle and it lands on your list with its region, its grape and its name said right.",
-    bigCap: "wines, beers and spirits added in one week. Taken from the wine lists of more than 200 serious restaurants, from Le Taillevent to Rekondo, and checked against each winery's own website.",
+    bigCap: "From Le Taillevent to Rekondo. Every bottle checked against its winery's or a merchant's own website. Anything that can't be checked stays out.",
     findLabel: "Try it: search for a bottle",
     findPh: "pingus, musar, ardanza…",
     cartaH: "Wine list",
@@ -232,10 +238,10 @@
   };
 
   const FILMS = [
-    ["historia-corta", 1, { es: ["La historia en 1 minuto", "Qué es y por qué cambia el día a día de un restaurante."], en: ["The story in 1 minute", "What it is and why it changes a restaurant's day."] }],
-    ["en-20-segundos", 1, { es: ["En 20 segundos", "Un cambio de precio a medianoche llega a la carta QR, la caja y la web."], en: ["In 20 seconds", "A midnight price change reaches the QR menu, the till and the website."] }],
-    ["carta-anadir-vino", 1, { es: ["Añade un vino", "Escribe el nombre, la bodega y el precio; la app rellena su ficha."], en: ["Add a wine", "Type the name, the winery and the price; the app fills in its card."] }],
-    ["servicio-reserva-y-sentar", 1, { es: ["Reserva y sienta", "Crea una reserva, dale mesa y siéntalos cuando llegan."], en: ["Book and seat", "Make a booking, give it a table and seat them when they arrive."] }],
+    ["historia-corta", "0:55", { es: ["La historia en 1 minuto", "Qué es y por qué cambia el día a día de un restaurante."], en: ["The story in 1 minute", "What it is and why it changes a restaurant's day."] }],
+    ["carta-cambiar-precio", "1:03", { es: ["Cambia un precio", "Un precio nuevo llega a la carta QR, la caja y la web a la vez."], en: ["Change a price", "A new price reaches the QR menu, the till and the website at once."] }],
+    ["carta-anadir-vino", "1:00", { es: ["Añade un vino", "Escribe el nombre, la bodega y el precio; la app rellena su ficha."], en: ["Add a wine", "Type the name, the winery and the price; the app fills in its card."] }],
+    ["servicio-reserva-y-sentar", "1:01", { es: ["Reserva y sienta", "Crea una reserva, dale mesa y siéntalos cuando llegan."], en: ["Book and seat", "Make a booking, give it a table and seat them when they arrive."] }],
   ];
 
   const BARS = [36, 55, 20, 36, 48, 31, 27, 32];
@@ -259,7 +265,7 @@
     $("#q").setAttribute("placeholder", lang === "en" ? EN.findPh : ES.findPh);
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     try { localStorage.setItem("tv-lang", lang); } catch (_) {}
-    renderDate(); renderSays(); renderCallStatic(); renderNames(); renderSpec(); renderHits(); renderCarta(); renderRoles(); renderSpecials(); renderOnly(); renderFilms(); renderBars();
+    renderDate(); renderLedgers(); renderSays(); renderCallStatic(); renderNames(); renderSpec(); renderHits(); renderCarta(); renderRoles(); renderSpecials(); renderOnly(); renderFilms(); renderBars();
     if (currentSay) replaySay(currentSay, true);
   }
   $$(".lang button").forEach((b) => b.addEventListener("click", () => applyLang(b.dataset.lang)));
@@ -404,20 +410,36 @@
   player.addEventListener("ended", () => { if (playingBtn) playingBtn.classList.remove("playing"); playingBtn = null; });
   player.addEventListener("pause", () => { if (playingBtn && player.ended) playingBtn.classList.remove("playing"); });
 
-  let spec = 0;
+  const SETS = [
+    { es: "El pulpo", en: "Octopus", rows: [["ES", "Pulpo", "cl-7f868d2aa6abeb18727c"], ["FR", "Poulpe", "cl-004cbccd34c50d9f7c46"], ["IT", "Polpo", "cl-cd5977a930dc031214c8"], ["DE", "Oktopus", "cl-b74c32611bf0fe53058a"], ["PT", "Polvo", "cl-06fedd6792fad3c1ce3b"], ["EN", "Octopus", "cl-757828b629b2eb575a5d"], ["JA", "蛸", "cl-29f7c06b767151587b91"]] },
+    { es: "El bacalao", en: "Cod", rows: [["ES", "Bacalao", "cl-6c9a301b18e296ec711b"], ["FR", "Morue", "cl-1e20d64c8d57c0ba9bb8"], ["IT", "Baccalà", "cl-a6f83ea860bf4a6d2399"], ["DE", "Kabeljau", "cl-8713864a74d55356a33d"], ["PT", "Bacalhau", "cl-6f17a95cde19d789f601"], ["EN", "Cod", "cl-e25185ccd1cfab6d14bd"]] },
+    { es: "El queso", en: "Cheese", rows: [["ES", "Queso", "cl-d7f551b21db4916bf9fb"], ["FR", "Fromage", "cl-0f7bc5c27ad161872fc3"], ["IT", "Formaggio", "cl-4fcb900cfb68c873f082"], ["DE", "Käse", "cl-8c6438ea41360c0792b0"], ["PT", "Queijo", "cl-6e0cc85d13ef2b8e99c7"], ["EN", "Cheese", "cl-25762b29b3e581137758"]] },
+  ];
+  let set = 0;
+  function renderSets() {
+    $("#sets").innerHTML = SETS.map((x, i) => `<button type="button" data-set="${i}" aria-pressed="${i === set}">${esc(x[lang])}</button>`).join("");
+    $$("#sets button").forEach((b) => b.addEventListener("click", () => { set = +b.dataset.set; renderSets(); renderSaid(); }));
+  }
+  function renderSaid() {
+    const lbl = lang === "en" ? ["Woman's voice", "Man's voice"] : ["Voz de mujer", "Voz de hombre"];
+    $("#said").innerHTML = SETS[set].rows.map(([lg, w, k]) => `<li><span class="lg">${lg}</span><span class="w" lang="${lg.toLowerCase()}">${esc(w)}</span><span class="lead"></span><span class="pl"><button type="button" class="icon-btn vbtn" data-k="${k}" aria-label="${lbl[0]}: ${esc(w)}">${icon("speaker")}<span>${lbl[0].split(" ").pop()}</span></button><button type="button" class="icon-btn vbtn" data-k="${k}" data-m="1" aria-label="${lbl[1]}: ${esc(w)}">${icon("speaker")}<span>${lbl[1].split(" ").pop()}</span></button></span></li>`).join("");
+    $("#specName").textContent = SETS[set].rows[0][1];
+    $$("#said button").forEach((b) => b.addEventListener("click", () => {
+      $$("#said li").forEach((li) => li.classList.remove("on"));
+      b.closest("li").classList.add("on");
+      $("#specName").textContent = b.closest("li").querySelector(".w").textContent;
+      play(b.dataset.k + ".mp3", !!b.dataset.m, b);
+    }));
+  }
   function renderNames() {
-    $("#names").innerHTML = NAMES.map(([k, n, l], i) => `<button type="button" data-n="${i}" aria-pressed="${i === spec}"><span class="flag">${l.toUpperCase()}</span>${esc(n)}</button>`).join("");
-    $$("#names button").forEach((b) => b.addEventListener("click", () => { spec = +b.dataset.n; renderSpec(); $$("#names button").forEach((x) => x.setAttribute("aria-pressed", String(+x.dataset.n === spec))); play(NAMES[spec][0] + ".mp3", false, $('[data-voice="f"]')); }));
+    $("#names").innerHTML = NAMES.map(([k, n, l], i) => `<button type="button" data-idx="${i}"><span class="flag">${l.toUpperCase()}</span>${esc(n)}</button>`).join("");
+    $$("#names button").forEach((b) => b.addEventListener("click", () => play(NAMES[+b.dataset.idx][0] + ".mp3", false, b)));
   }
-  function renderSpec() {
-    const [, n, l, hasM] = NAMES[spec];
-    $("#specName").textContent = n;
-    $$(".spec-sizes span").forEach((s) => (s.textContent = n));
-    $("#specFlag").textContent = l.toUpperCase();
-    $("#specLang").textContent = T[lang].langNames[l] + (lang === "en" ? " · native voice" : " · voz nativa");
-    $('[data-voice="m"]').disabled = !hasM;
+  function renderSpec() { renderSets(); renderSaid(); }
+  function renderLedgers() {
+    const f = new Intl.NumberFormat(lang === "en" ? "en-GB" : "es-ES");
+    $$("b[data-n]").forEach((b) => { b.textContent = f.format(+b.dataset.n) + (b.dataset.plus ? "+" : "") + (b.dataset.pct ? (lang === "en" ? "%" : " %") : ""); });
   }
-  $$(".voices button").forEach((b) => b.addEventListener("click", () => play(NAMES[spec][0] + ".mp3", b.dataset.voice === "m", b)));
 
   /* ---------- cellar finder ---------- */
   const fold = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -473,12 +495,13 @@
     $("#only").innerHTML = ONLY[lang].map((t) => `<li>${icon("check")}<span>${esc(t)}</span></li>`).join("");
   }
   function renderFilms() {
-    $("#films").innerHTML = FILMS.map(([id, min, t]) => `<button type="button" class="film" data-film="${id}"><span class="frame"><img src="${MEDIA}${id}.jpg" alt="" loading="lazy" width="640" height="400"><span class="len">${min} min · ES</span><span class="play">${icon("play")}</span></span><span><b>${esc(t[lang][0])}</b><small>${esc(t[lang][1])}</small></span></button>`).join("");
+    $("#films").innerHTML = FILMS.map(([id, min, t]) => `<button type="button" class="film" data-film="${id}"><span class="frame"><img src="${MEDIA}${id}.jpg" alt="" loading="lazy" width="640" height="400"><span class="len">${min} · ES</span><span class="play">${icon("play")}</span></span><span><b>${esc(t[lang][0])}</b><small>${esc(t[lang][1])}</small></span></button>`).join("");
     bindFilms();
   }
   function renderBars() {
     const max = 60;
-    $("#bars").innerHTML = BARS.map((v) => `<div class="bar"><b>${v}</b><i style="height:${(v / max) * 100}%"></i></div>`).join("");
+    const H = $("#bars").clientHeight || 240;
+    $("#bars").innerHTML = BARS.map((v) => `<div class="bar"><b>${v}</b><i style="height:${Math.round((v / max) * (H - 34))}px"></i></div>`).join("");
     $("#barDays").innerHTML = T[lang].days.map((d) => `<span>${d}</span>`).join("");
   }
 
@@ -543,12 +566,15 @@
   }
 
   /* ---------- boot ---------- */
+  onList.add("wine-dominio-de-pingus"); onList.add("wine-vina-tondonia-reserva");
+  currentSay = "sold";
   applyLang(lang);
+  effect("sold"); drawAll();
   if (!reduce) { document.documentElement.classList.add("intro"); setTimeout(() => document.documentElement.classList.remove("intro"), 2600); }
   if (!reduce) setTimeout(heroPlay, 700);
   drawTally();
   observeOnce($("#bigNum"), () => countUp($("#bigNum"), 16000));
   observeOnce($("#callLines"), playCall, 0.3);
-  observeOnce($("#says"), () => { if (!currentSay) playSay("sold"); }, 0.5);
+
   observeOnce($("#bars"), () => $$("#bars i").forEach((b, i) => b.animate([{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }], { duration: 700, delay: i * 70, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" })), 0.5);
 })();
