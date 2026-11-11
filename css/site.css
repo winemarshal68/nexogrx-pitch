@@ -342,3 +342,13 @@ h2.chalk{font-size:clamp(2.1rem,5.4vw,3.9rem)}
 .brand .wm{height:24px;width:auto}
 [hidden]{display:none!important}
 .hero-grid{margin-top:clamp(36px,6vw,72px)}
+.say span:last-child{filter:none}
+@media (max-width:900px){
+  .hero-grid>div:first-child{display:contents}
+  .hero-grid{display:flex;flex-direction:column;gap:0}
+  .hero-grid .today{order:1}.hero-grid h1{order:2}.hero-grid .lede{order:3}.hero-grid .ctas{order:4}
+  .hero-grid .ticket{order:5;margin-top:40px;align-self:flex-start;width:100%}
+  .hero-grid .menu{order:6}
+  .says{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:8px;margin-inline:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));padding-inline:max(20px, env(safe-area-inset-left, 0px));scrollbar-width:thin}
+  .say{flex:0 0 min(78vw,320px);scroll-snap-align:start}
+}

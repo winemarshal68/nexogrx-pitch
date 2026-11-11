@@ -334,7 +334,7 @@
   }
 
   function renderSays() {
-    $("#says").innerHTML = SAYS.map((s) => `<button type="button" class="say" data-say="${s.id}" aria-pressed="${currentSay === s.id}"><span class="mic">${icon("mic")}</span><span>«${esc(s[lang].q)}»</span></button>`).join("");
+    $("#says").innerHTML = SAYS.map((s) => `<button type="button" class="say" data-say="${s.id}" aria-pressed="${currentSay === s.id}"><span class="mic">${icon("mic")}</span><span>${lang === "en" ? "“" : "«"}${esc(s[lang].q)}${lang === "en" ? "”" : "»"}</span></button>`).join("");
     $$("#says .say").forEach((b) => b.addEventListener("click", () => playSay(b.dataset.say)));
     drawAll();
     if (!currentSay) {
@@ -344,6 +344,7 @@
       $("#vClock").textContent = fmt(clockMin);
     }
   }
+  const q = (t) => (lang === "en" ? `“${t}”` : `«${t}»`);
   const fmt = (m) => `${String(Math.floor(m / 60) % 24).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
   let stopType = null;
   function playSay(id) {
@@ -359,8 +360,8 @@
     $("#vWho").textContent = (lang === "en" ? "Said by " : "Lo dice ") + c.who;
     stopType && stopType();
     $$(".place").forEach((p) => p.classList.remove("hit"));
-    if (silent) { $("#vQuote").textContent = `«${c.q}»`; printLines($("#vLines"), c.l, 0); drawAll(); return; }
-    stopType = typeInto($("#vQuote"), `«${c.q}»`, () => {
+    if (silent) { $("#vQuote").textContent = q(c.q); printLines($("#vLines"), c.l, 0); drawAll(); return; }
+    stopType = typeInto($("#vQuote"), q(c.q), () => {
       printLines($("#vLines"), c.l);
       setTimeout(() => {
         const fresh = effect(id);
