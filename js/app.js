@@ -543,7 +543,7 @@
 
   /* ---------- boot ---------- */
   applyLang(lang);
-  document.documentElement.classList.add("intro");
+  if (!reduce) { document.documentElement.classList.add("intro"); setTimeout(() => document.documentElement.classList.remove("intro"), 2600); }
   if (!reduce) setTimeout(heroPlay, 700);
   drawTally();
   observeOnce($("#bigNum"), () => countUp($("#bigNum"), 16000));
