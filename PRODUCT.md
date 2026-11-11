@@ -50,6 +50,14 @@ Spanish restaurants; Granada first. Service is loud and fast; hands are full; st
 - Real La Higuera screenshots in `site-tablavista/public/img/`.
 - The competitor matrix in `nexogrx-position/js/data.js` (public module), verified 2026-10-15.
 - Demo request endpoint: `https://admin.nexogrx.es/api/demo/solicitar` (CORS-allowlisted for tablavista.com only), or the form on https://tablavista.com.
+- Figures and their sources (checked 2026-11-11):
+  - **134,713 name recordings in 45 languages**: the live manifest at https://audio.nexogrx.es/manifest.json (entry count, distinct `lang`); male set at `/male/manifest.json` (124,030 entries).
+  - **3,486 study cards**: about 2,670 Conceptos plus 816 Especialidades published (memory `guia-expansion-state.md`, 2026-11-04).
+  - **68 capabilities, 26 systems, 32 only TablaVista**: `nexogrx-position/js/data.js` CAPS and VENDORS, verified 2026-10-15; "only" counts rows where TablaVista is `y` and no rival is `y`.
+  - **~16,000 drinks in a week, 200+ restaurant lists, 74% coverage, Le Taillevent and Rekondo**: merged and open `data(catalogue)` PR titles in grx-micro-admin from 4 to 11 Nov 2026 (about 8,800 + 7,600 items), `~/.catalogue-nightly/coverage-history.jsonl` (73.6% producer coverage over 214 lists on 2026-11-11), PRs #1722 and #1723.
+  - **285 improvements in 8 days**: PRs merged into grx-micro-admin main from 4 to 11 Nov 2026 (`gh pr list --state merged`).
+  - **Phone agent in 6 languages** (es, en, it, fr, de, pt): `scripts/voice/apply-agent.ts` LANGUAGES on main. It tells callers it is an AI. It is an add-on.
+  - **946 dish stories being translated**: live board `room` lane #115, 2026-11-11.
 - Absent: testimonials, customer counts, press, benchmarks. Do not fabricate.
 
 ## Product Principles

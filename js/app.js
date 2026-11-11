@@ -422,7 +422,8 @@
   }
   function renderSaid() {
     const lbl = lang === "en" ? ["Woman's voice", "Man's voice"] : ["Voz de mujer", "Voz de hombre"];
-    $("#said").innerHTML = SETS[set].rows.map(([lg, w, k]) => `<li><span class="lg">${lg}</span><span class="w" lang="${lg.toLowerCase()}">${esc(w)}</span><span class="lead"></span><span class="pl"><button type="button" class="icon-btn vbtn" data-k="${k}" aria-label="${lbl[0]}: ${esc(w)}">${icon("speaker")}<span>${lbl[0].split(" ").pop()}</span></button><button type="button" class="icon-btn vbtn" data-k="${k}" data-m="1" aria-label="${lbl[1]}: ${esc(w)}">${icon("speaker")}<span>${lbl[1].split(" ").pop()}</span></button></span></li>`).join("");
+    const short = lang === "en" ? ["Woman", "Man"] : ["Mujer", "Hombre"];
+    $("#said").innerHTML = SETS[set].rows.map(([lg, w, k]) => `<li><span class="lg">${lg}</span><span class="w" lang="${lg.toLowerCase()}">${esc(w)}</span><span class="lead"></span><span class="pl"><button type="button" class="icon-btn vbtn" data-k="${k}" aria-label="${lbl[0]}: ${esc(w)}">${icon("speaker")}<span>${short[0]}</span></button><button type="button" class="icon-btn vbtn" data-k="${k}" data-m="1" aria-label="${lbl[1]}: ${esc(w)}">${icon("speaker")}<span>${short[1]}</span></button></span></li>`).join("");
     $("#specName").textContent = SETS[set].rows[0][1];
     $$("#said button").forEach((b) => b.addEventListener("click", () => {
       $$("#said li").forEach((li) => li.classList.remove("on"));

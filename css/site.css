@@ -398,3 +398,17 @@ h2.chalk{font-size:clamp(2.1rem,5.4vw,3.9rem)}
   .said .lead{display:none}
 }
 .icon-btn.vbtn{width:auto;padding:0 12px;display:inline-flex;gap:7px;align-items:center;font:600 .82rem/1 var(--text-font)}
+
+/* ---- review round 2 ---- */
+.hero{padding-block:clamp(20px,3vw,36px) clamp(48px,6vw,80px)}
+.hero-grid{margin-top:clamp(22px,3.2vw,44px)}
+.hero h1{font-size:clamp(2.9rem,6.6vw,5.2rem);margin-top:8px}
+.hero .lede{margin-top:14px}
+.menu{margin-top:clamp(18px,2.4vw,28px);padding-top:12px}
+.menu a{padding:5px 0}
+.incl{margin-top:6px}
+.ctas{margin-top:20px}
+@media (max-width:560px){
+  .said li{grid-template-columns:2.6em minmax(0,1fr);row-gap:8px}
+  .said .pl{grid-column:2}
+}
