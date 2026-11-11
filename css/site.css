@@ -340,3 +340,5 @@ h2.chalk{font-size:clamp(2.1rem,5.4vw,3.9rem)}
 }
 .now-h{font-size:1.6rem;margin:0 0 16px}
 .brand .wm{height:24px;width:auto}
+[hidden]{display:none!important}
+.hero-grid{margin-top:clamp(36px,6vw,72px)}
