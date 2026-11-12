@@ -86,6 +86,12 @@
     k2: "946 dish stories in four languages", k2s: "For the guest from abroad and for the waiter from abroad.",
     k3: "The rota says how many people are missing", k3s: "Every day of the week, by service and by role.",
     k4: "Tasting notes for the new bottles", k4s: "Body, acidity and tannin, only when they can be checked.",
+    cmH: "Four months. 1,657 improvements.",
+    cmL: "Since 22 July, counted from the code's real history. And the pace hasn't slowed: November has 420 in twelve days.",
+    cmN1: "improvements a day on average, weekends included",
+    cmN2: "different screens in the app",
+    cmN3: "automatic tests before every release (19 in July)",
+    cmN4: "wines and drinks in the catalogue, from the world's best lists",
     closeH: "Tomorrow, in your restaurant.",
     closeL: "A demo with your menu and your tables, in your place, on a tablet.",
     tagline: "Restaurant management",
@@ -265,7 +271,7 @@
     $("#q").setAttribute("placeholder", lang === "en" ? EN.findPh : ES.findPh);
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     try { localStorage.setItem("tv-lang", lang); } catch (_) {}
-    renderDate(); renderLedgers(); renderSays(); renderCallStatic(); renderNames(); renderSpec(); renderHits(); renderCarta(); renderRoles(); renderSpecials(); renderOnly(); renderFilms(); renderBars();
+    renderDate(); renderLedgers(); renderSays(); renderCallStatic(); renderNames(); renderSpec(); renderHits(); renderCarta(); renderRoles(); renderSpecials(); renderOnly(); renderFilms(); renderBars(); renderMonths();
     if (currentSay) replaySay(currentSay, true);
   }
   $$(".lang button").forEach((b) => b.addEventListener("click", () => applyLang(b.dataset.lang)));
@@ -506,6 +512,32 @@
     $("#barDays").innerHTML = T[lang].days.map((d) => `<span>${d}</span>`).join("");
   }
 
+  /* ---------- four months (2026-11-12, from the grx-micro-admin merge history) ---------- */
+  const MONTHS = [
+    [21, { es: ["Jul", "Los cimientos", "mejoras"], en: ["Jul", "The groundwork", "improvements"] },
+      { es: ["Carta y alérgenos en un solo sitio", "Primeros vinos con su ficha", "Clientes y reservas, la base"],
+        en: ["Menu and allergens in one place", "First wines with their own profile", "Guests and bookings, the base"] }],
+    [525, { es: ["Ago", "La operación entera, en un mes", "mejoras"], en: ["Aug", "The whole operation, in one month", "improvements"] },
+      { es: ["La caja conectada, un PIN para todo", "El servicio en directo", "Tablón y checklists del equipo", "Reservas con depósito y recordatorios", "Foto del albarán, comparado con el pedido", "Varios locales, un solo dueño", "Mapas de viñedos de media Europa"],
+        en: ["The till connected, one PIN for everything", "The live service view", "Staff notice board and checklists", "Bookings with deposits and reminders", "Delivery-note photo, checked against the order", "Several venues, one owner", "Vineyard maps across half of Europe"] }],
+    [199, { es: ["Sep", "La app aprende a hablar", "mejoras"], en: ["Sep", "The app learns to talk", "improvements"] },
+      { es: ["Asistente de voz para el equipo", "El cierre del día, en el correo del dueño", "Tiempos de cocina reales", "Coravin: botella y copa, bien contadas", "Pagar la mesa desde el móvil"],
+        en: ["A voice assistant for the team", "The daily close, in the owner's inbox", "Real kitchen times", "Coravin: bottle and glass, counted right", "Pay the table from your phone"] }],
+    [492, { es: ["Oct", "Profundidad y diseño", "mejoras"], en: ["Oct", "Depth and design", "improvements"] },
+      { es: ["Diseño nuevo, local a local", "Cualquier tableta, pantalla de sala o cocina", "«Suele pedir», cliente a cliente", "Alérgenos con iconos, siempre junto a las palabras", "Un restaurante de demostración completo"],
+        en: ["A new design, venue by venue", "Any tablet as a room or kitchen screen", "\u201cUsually orders\u201d, guest by guest", "Allergen icons, always beside the words", "A complete demo restaurant"] }],
+    [420, { es: ["Nov", "El catálogo y la voz", "mejoras en 12 días"], en: ["Nov", "The catalogue and the voice", "improvements in 12 days"] },
+      { es: ["La voz crea y cambia reservas", "Platos del día en pantalla, por voz", "34.179 vinos y 2.254 bebidas", "Turnos propuestos con su coste a la vista", "Inventario en el orden en que caminas"],
+        en: ["Voice creates and changes bookings", "Specials on screen, by voice", "34,179 wines and 2,254 drinks", "Rota proposals with the cost in plain sight", "Stock counts in the order you walk"] }],
+  ];
+  function renderMonths() {
+    const loc = lang === "en" ? "en-GB" : "es-ES";
+    const nf = (v, d) => new Intl.NumberFormat(loc, { useGrouping: "always", minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+    const max = Math.max(...MONTHS.map((m) => m[0]));
+    $("#months").innerHTML = MONTHS.map(([n, h, items]) => `<li class="month"><div><div class="m chalk">${h[lang][0]}</div><div class="c">${nf(n, 0)} ${esc(h[lang][2])}</div><div class="meter" style="width:${Math.max(6, Math.round((n / max) * 100))}%"></div></div><div><h3>${esc(h[lang][1])}</h3><ul>${items[lang].map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div></li>`).join("");
+    $$("[data-cm]").forEach((b) => { const v = +b.dataset.cm; b.textContent = nf(v, v % 1 ? 1 : 0); });
+  }
+
   /* ---------- video sheet ---------- */
   const sheet = $("#sheet"); const vid = $("#sheetVideo"); let lastFocus = null;
   function openFilm(id) {
@@ -577,5 +609,6 @@
   observeOnce($("#bigNum"), () => countUp($("#bigNum"), 16000));
   observeOnce($("#callLines"), playCall, 0.3);
 
+  observeOnce($("#months"), () => $$("#months .meter").forEach((b, i) => b.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 800, delay: i * 90, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" })), 0.3);
   observeOnce($("#bars"), () => $$("#bars i").forEach((b, i) => b.animate([{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }], { duration: 700, delay: i * 70, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" })), 0.5);
 })();

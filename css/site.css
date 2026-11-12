@@ -412,3 +412,16 @@ h2.chalk{font-size:clamp(2.1rem,5.4vw,3.9rem)}
   .said li{grid-template-columns:2.6em minmax(0,1fr);row-gap:8px}
   .said .pl{grid-column:2}
 }
+
+/* Four months (2026-11-12) */
+.cm-nums{grid-template-columns:repeat(4,minmax(0,1fr))}
+.months{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:0;display:grid;gap:0}
+.month{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:clamp(16px,3vw,40px);padding:26px 0;border-top:2px dashed rgba(241,238,230,.22)}
+.month .m{font-family:var(--chalk-font);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1}
+.month .c{color:var(--chalk-dim);font-size:.9rem;margin-top:6px}
+.month .meter{height:6px;border-radius:3px;background:var(--red-chalk);margin-top:12px;transform-origin:left}
+.month h3{font-family:var(--chalk-font);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.2;margin:0 0 12px}
+.month ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.month li{padding:6px 12px;border-radius:999px;border:1.5px solid rgba(241,238,230,.25);font-size:.95rem;color:var(--chalk)}
+@media (max-width:900px){.cm-nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.month{grid-template-columns:minmax(0,1fr);gap:10px}}
